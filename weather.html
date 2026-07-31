@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Forecast (5 Days)</title>
+  <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    WEATHER FORECAST (5 DAYS)
+  </div>
+
+  <div class="main-container">
+
+    <div class="search-input-group">
+      <select id="search-type" onchange="handleSearchTypeChange()">
+        <option value="city" selected>City Name</option>
+        <option value="zip">Zip Code</option>
+        <option value="coords">Coords</option>
+      </select>
+      <input type="text" id="search-input" placeholder="City Name">
+      <button type="button" onclick="fetchWeather()">Search</button>
+    </div>
+
+    <div id="weather-display" class="d-none">
+      
+        <div class="weather-summary">
+        <div class="city-name" id="city-title">Islamabad, PK</div>
+        <div class="day-name" id="selected-day-text">Thursday</div>
+        <div class="weather-desc" id="selected-weather-desc">Rain</div>
+
+        <div class="current-weather-row">
+          <div class="current-weather-main">
+            <img id="main-icon" src="" alt="weather icon">
+            <div class="temp-block">
+              <span class="temp-large" id="main-temp">82</span>
+              <span class="unit-toggle">
+                °<span id="unit-c" class="active" onclick="setUnit('metric')">C</span> | 
+                °<span id="unit-f" onclick="setUnit('imperial')">F</span>
+              </span>
+            </div>
+          </div>
+          <div class="weather-meta">
+            <div>Pressure: <span id="meta-pressure">1000.36</span> hPa</div>
+            <div>Humidity: <span id="meta-humidity">52</span>%</div>
+            <div>Wind Speed: <span id="meta-wind">2.88</span> m/s</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="days-row" id="days-container">
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Custom JavaScript -->
+  <script src="weather.js"></script>
+</body>
+</html>
