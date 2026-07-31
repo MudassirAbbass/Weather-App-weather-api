@@ -199,7 +199,9 @@ function renderDayCards(data) {
     col.innerHTML = `
       <div class="day-card ${i === selectedDayIndex ? 'selected' : ''}" data-index="${i}">
         <div class="card-day">${dayName}</div>
-        <div class="card-icon"></div>
+        <div class="card-icon">
+            <img src="cloud.png" alt="cloud" />
+        </div>
         <div class="card-temp"><strong>${maxT}°</strong> ${minT}°</div>
       </div>
     `;
