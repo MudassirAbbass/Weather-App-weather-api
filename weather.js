@@ -35,18 +35,9 @@ function convertTemp(tempInC) {
   return Math.round(tempInC);
 }
 
-//these links are online SVG icons for weather conditions
+// Add your own weather icon manually here later.
 function buildIconUrl(condition) {
-  const value = (condition || '').toLowerCase();
-  const svg = value.includes('clear')
-    ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M4.93 19.07l1.41-1.41"></path><path d="M17.66 6.34l1.41-1.41"></path></svg>'
-    : value.includes('rain')
-      ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5A3.5 3.5 0 0 1 3.5 13h0A3.5 3.5 0 0 1 7 9.5"></path><path d="M17 16.5A3.5 3.5 0 0 1 13.5 13h0A3.5 3.5 0 0 1 17 9.5"></path><path d="M9 20l-1 2"></path><path d="M15 20l-1 2"></path><path d="M12 4a4.5 4.5 0 0 0-4.5 4.5"></path><path d="M12 4a4.5 4.5 0 0 1 4.5 4.5"></path></svg>'
-      : value.includes('snow')
-        ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#dbeafe" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3"></path><path d="M12 18v3"></path><path d="M4.22 7.22l2.12 2.12"></path><path d="M17.66 17.66l2.12 2.12"></path><path d="M3 12h3"></path><path d="M18 12h3"></path><path d="M4.22 16.78l2.12-2.12"></path><path d="M17.66 6.34l2.12-2.12"></path><path d="M8 14a4 4 0 1 1 8 0"></path></svg>'
-        : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16.5A4.5 4.5 0 0 0 13.5 12h-.5A5.5 5.5 0 1 0 6 16.5"></path><path d="M12 8a4 4 0 0 0-4 4"></path><path d="M12 5a7 7 0 0 1 7 7"></path></svg>';
-
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+  return '';
 }
 
 function normalizeWeatherData(raw, cityName) {
@@ -208,7 +199,7 @@ function renderDayCards(data) {
     col.innerHTML = `
       <div class="day-card ${i === selectedDayIndex ? 'selected' : ''}" data-index="${i}">
         <div class="card-day">${dayName}</div>
-        <img src="${buildIconUrl(item.weather || data.weather || 'Clouds')}" alt="${item.weather || data.weather || 'Clouds'}">
+        <div class="card-icon"></div>
         <div class="card-temp"><strong>${maxT}°</strong> ${minT}°</div>
       </div>
     `;
